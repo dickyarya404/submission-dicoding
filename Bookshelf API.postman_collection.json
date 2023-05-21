@@ -4,7 +4,7 @@
 		"name": "Bookshelf API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "26191540",
-		"_collection_link": "https://lunar-resonance-141848.postman.co/workspace/4fded1c7-8c1d-43c3-8ab5-f47fe3477c03/collection/26191540-073a4d18-8161-4c10-b02c-eabddb71a90c?action=share&creator=26191540&source=collection_link"
+		"_collection_link": "https://lunar-resonance-141848.postman.co/workspace/Team-Workspace~4fded1c7-8c1d-43c3-8ab5-f47fe3477c03/collection/26191540-073a4d18-8161-4c10-b02c-eabddb71a90c?action=share&creator=26191540&source=collection_link"
 	},
 	"item": [
 		{
@@ -59,67 +59,6 @@
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"name\": \"{{newName}}\",\r\n    \"year\": {{newYear}},\r\n    \"author\": \"{{newAuthor}}\",\r\n    \"summary\": \"{{newSummary}}\",\r\n    \"publisher\": \"{{newPublisher}}\",\r\n    \"pageCount\": {{newPageCount}},\r\n    \"readPage\": {{newReadPage}},\r\n    \"reading\": {{newReading}}\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:{{port}}/books",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "{{port}}",
-					"path": [
-						"books"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "[Mandatory] Add Book Without Name",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test('status code should be 400', () => {\r",
-							"    pm.response.to.have.status(400);\r",
-							"});\r",
-							"\r",
-							"pm.test('response header Content-Type should be application/json', () => {\r",
-							"    pm.expect(pm.response.headers.get('Content-Type')).to.equals('application/json; charset=utf-8');\r",
-							"});\r",
-							"\r",
-							"pm.test('response body should be an object', () => {\r",
-							"    const responseJson = pm.response.json();\r",
-							"    pm.expect(responseJson).to.be.an('object');\r",
-							"});\r",
-							"\r",
-							"pm.test('response body should have correct property and value', () => {\r",
-							"    const responseJson = pm.response.json();\r",
-							"    \r",
-							"    pm.expect(responseJson).to.haveOwnProperty('status');\r",
-							"    pm.expect(responseJson).to.haveOwnProperty('message');\r",
-							"    pm.expect(responseJson).to.not.haveOwnProperty('data');\r",
-							"\r",
-							"    pm.expect(responseJson.status).to.equals('fail');\r",
-							"    pm.expect(responseJson.message).to.equals('Gagal menambahkan buku. Mohon isi nama buku');\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"year\": {{newYear}},\r\n    \"author\": \"{{newAuthor}}\",\r\n    \"summary\": \"{{newSummary}}\",\r\n    \"publisher\": \"{{newPublisher}}\",\r\n    \"pageCount\": {{newPageCount}},\r\n    \"readPage\": {{newReadPage}},\r\n    \"reading\": {{newReading}}\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
